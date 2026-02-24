@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПИРС — Высокоточная навигация</title>
+    
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="common/footer_style.css">
+</head>
+<body>
+
+    <main>
+        <!-- ЭКРАН 1 -->
+        <section class="hero-fullscreen">
+            <div class="dark-overlay"></div>
+
+            <header class="landing-header">
+                <div class="header-container-custom">
+                    
+                    <div class="logo-group">
+                        <a href="index.html" class="logo-top-left">
+                            <img src="media/images/main-logo.png" alt="PEERS">
+                        </a>
+                        <p class="logo-tagline">
+                            Решения для локальной навигации <br> 
+                            для БПЛА и наземных робототехнических платформ
+                        </p>
+                    </div>
+
+                    <div class="header-right-part">
+                        <nav class="main-nav-white" id="main-nav">
+                            <ul class="nav-list-simple">
+                                <li class="has-dropdown">
+                                    <a href="#">Продукт</a>
+                                    <ul class="submenu">
+                                        <li><a href="#devices">Устройства</a></li>
+                                        <li><a href="pages/software/software.html">ПО / Прошивки</a></li>
+                                        <li><a href="pages/technology/technology.html">Технология</a></li>
+                                        <li><a href="pages/docs/docs.html">Документация</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-dropdown">
+                                    <a href="#">Решения</a>
+                                    <ul class="submenu">
+                                        <li><a href="pages/solutions/solutions.html">Решения</a></li>
+                                        <li><a href="pages/cases/cases.html">Кейсы</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-dropdown">
+                                    <a href="#">Компания</a>
+                                    <ul class="submenu">
+                                        <li><a href="pages/about/about.html">О нас</a></li>
+                                        <li><a href="pages/partners/partners.html">Партнеры</a></li>
+                                        <li><a href="pages/agreement/agreement.html">Соглашение</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="pages/contacts/contacts.html">Контакты</a></li>
+                            </ul>
+                        </nav>
+
+                        <div class="menu-toggle" id="mobile-menu">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                                    
+                    </div>   
+                </div>
+            </header>
+
+            <div class="hero-content-center">
+                <a href="#learn-more" class="btn-more">Узнать больше</a>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 2 -->
+        <section id="learn-more" class="full-slider-section">
+            <div class="slider-wrapper">
+                <div class="slide active">
+                    <img src="media/images/dron2.png" alt="Модуль" class="slide-bg">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h2 class="slide-title">Бортовой навигационный модуль</h2>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="media/images/back31.png" alt="Инфраструктура" class="slide-bg">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h2 class="slide-title">Опорная точка</h2>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-arrow prev" onclick="moveSlide(-1)">
+                <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button class="slider-arrow next" onclick="moveSlide(1)">
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+        </section>
+
+        <!-- ЭКРАН 3 -->
+        <section id="gallery-section" class="third-screen">
+            <video autoplay muted loop playsinline poster="media/images/video-poster.jpg" class="bg-video" id="bg-video" preload="metadata">
+                <source src="media/videos/video1.webm" type="video/webm">
+                <source src="media/videos/video1.mp4" type="video/mp4">
+            </video>
+            
+            <div class="dark-overlay2"></div>
+            <div class="static-gallery-title">Как это работает</div>
+        </section>
+
+        <!-- ЭКРАН 4 -->
+        <section id="devices" class="section-grid-screen">
+            <div class="grid-section-header">
+                <h2 class="main-title-label">Устройства</h2>
+            </div>
+
+            <div class="grid-container">
+                <div class="grid-row">
+                    <div class="grid-cell photo-cell">
+                        <div class="podium">
+                            <img src="media/images/Bumblebee.jpg" alt="Bumblebee">
+                        </div>
+                    </div>
+                    <div class="grid-cell text-cell">
+                        <div class="text-wrapper">
+                            <h2 class="device-name">Bumblebee</h2>
+                            <ul class="specs-list">
+                                <li><span>—</span> Высокая точность 2см</li>
+                                <li><span>—</span> Вес всего 15 грамм</li>
+                                <li><span>—</span> Интерфейс UART/CAN</li>
+                                <li><span>—</span> Частота обновления 100Гц</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-row">
+                    <div class="grid-cell text-cell">
+                        <div class="text-wrapper">
+                            <h2 class="device-name">Калибри</h2>
+                            <ul class="specs-list">
+                                <li><span>—</span> Промышленный стандарт</li>
+                                <li><span>—</span> Защита от помех</li>
+                                <li><span>—</span> Интеграция с ROS 2</li>
+                                <li><span>—</span> Питание 5-36В</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid-cell photo-cell">
+                        <div class="podium">
+                            <img src="media/images/Bumblebee.jpg" alt="Калибри">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 5 -->
+        <section id="infrastructure" class="section-grid-screen">
+
+            <div class="grid-container">
+                <div class="grid-row">
+                    <div class="grid-cell photo-cell">
+                        <div class="podium">
+                            <img src="media/images/Bumblebee.jpg" alt="Комар">
+                        </div>
+                    </div>
+                    <div class="grid-cell text-cell">
+                        <div class="text-wrapper">
+                            <h2 class="device-name">Комар</h2>
+                            <ul class="specs-list">
+                                <li><span>—</span> Стационарный якорь</li>
+                                <li><span>—</span> Корпус IP67</li>
+                                <li><span>—</span> Дальность до 500м</li>
+                                <li><span>—</span> Работает от -40°C</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-row">
+                    <div class="grid-cell text-cell">
+                        <div class="text-wrapper">
+                            <h2 class="device-name">Свет дом</h2>
+                            <ul class="specs-list">
+                                <li><span>—</span> Мобильная база</li>
+                                <li><span>—</span> Автономная работа 8ч</li>
+                                <li><span>—</span> Быстрая калибровка</li>
+                                <li><span>—</span> Встроенный АКБ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid-cell photo-cell">
+                        <div class="podium">
+                            <img src="media/images/Bumblebee.jpg" alt="Камень">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Слайдер (Экран 2)
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function moveSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Магнитный скролл
+        window.addEventListener('scroll', () => {
+            const gallerySection = document.getElementById('gallery-section');
+            if (gallerySection) {
+                const sectionBottom = gallerySection.offsetTop + gallerySection.offsetHeight;
+                if (window.scrollY > sectionBottom - 200) { 
+                    document.documentElement.style.scrollSnapType = "none";
+                } else {
+                    document.documentElement.style.scrollSnapType = "y mandatory";
+                }
+            }
+        });
+
+        // Видео (Пауза при уходе)
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('bg-video');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) video.play(); 
+                    else video.pause();
+                });
+            }, { threshold: 0.5 });
+            observer.observe(document.getElementById('gallery-section'));
+        });
+
+        // Загрузка подвала
+        fetch('common/_footer.html')
+            .then(res => res.text())
+            .then(data => {
+                let correctedData = data.replace(/\.\.\/\.\.\/media\//g, 'media/').replace(/\.\.\//g, 'pages/');             
+                document.getElementById('footer-placeholder').innerHTML = correctedData;
+            });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu');
+            const nav = document.querySelector('.nav-list-simple');
+            const body = document.body;
+
+            if (btn && nav) {
+                btn.onclick = () => {
+                    const isActive = nav.classList.toggle('active');
+                    btn.classList.toggle('is-active');
+                    
+                    // Блокируем скролл основной страницы при открытом меню
+                    body.style.overflow = isActive ? 'hidden' : '';
+                };
+
+                // Закрытие при клике на ссылку (чтобы меню не висело после перехода)
+                const links = nav.querySelectorAll('a');
+                links.forEach(link => {
+                    link.onclick = () => {
+                        nav.classList.remove('active');
+                        btn.classList.remove('is-active');
+                        body.style.overflow = '';
+                    };
+                });
+            }
+        });
+    </script>
+    
+</body>
+</html>
