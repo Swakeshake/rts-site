@@ -1,0 +1,90 @@
+/* Специфические стили для страницы О нас */
+
+.page-content {
+    padding: 80px 20px 100px;
+}
+
+/* Заголовок секции (стиль как у "Устройства" на главной) */
+.page-main-title {
+    font-size: 28px; /* Как .section-main-title на главной */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 20px;
+}
+
+.lead-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-gray);
+    max-width: 850px;
+    margin-bottom: 60px;
+}
+
+/* Блоки */
+.info-blocks {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.info-card {
+    flex: 1;
+    padding: 40px;
+    border-radius: 4px; /* Более острые углы как в карточках index */
+}
+
+.info-card h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Капс для единства стиля */
+    letter-spacing: 1px;
+}
+
+.info-card.primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.info-card.light {
+    background-color: #f8f8f8;
+    border: 1px solid #eee;
+}
+
+/* Сетка преимуществ */
+.section-subtitle {
+    font-size: 24px;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: left; /* Смещаем влево для строгости */
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.adv-item {
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+.adv-item strong {
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .info-blocks, .advantages-grid { flex-direction: column; grid-template-columns: 1fr; }
+}

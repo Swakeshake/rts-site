@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Технология UWB — ПИРС</title>
+    
+    <!-- Общие стили проекта -->
+    <link rel="stylesheet" href="../../common/head_style.css">
+    <link rel="stylesheet" href="../../common/footer_style.css">
+    
+    <!-- Специфические стили этой страницы -->
+    <link rel="stylesheet" href="technology.css">
+</head>
+<body>
+
+    <!-- Место для динамической шапки -->
+    <div id="header-placeholder"></div>
+
+    <main class="container page-content">
+        <!-- Заголовок в стиле проекта -->
+        <section class="page-intro">
+            <h1 class="page-main-title">Сверхширокополосная технология (UWB)</h1>
+            <p class="lead-text">
+                <strong>Ultra-Wideband (UWB)</strong> — это протокол беспроводной связи малого радиуса действия, который работает на радиоволнах. 
+                Это обеспечивает уникальную точность измерения расстояния, недоступную другим системам.
+            </p>
+        </section>
+
+        <section class="tech-details-grid">
+            <div class="tech-text">
+                <h2 class="section-subtitle">Преимущества ПИРС на базе UWB</h2>
+                <ul class="tech-list">
+                    <li><strong>Высокое временное разрешение:</strong> Длительность импульса составляет наносекунды, что позволяет различать отраженные сигналы.</li>
+                    <li><strong>Устойчивость к многолучевости:</strong> Система стабильно работает в сложных промышленных помещениях.</li>
+                    <li><strong>Низкая мощность:</strong> Передатчики потребляют минимум энергии, обеспечивая долгую работу от батарей.</li>
+                    <li><strong>Безопасность:</strong> Сигналы UWB крайне сложно перехватить или подменить.</li>
+                </ul>
+            </div>
+            
+            <div class="tech-visual-placeholder">
+                <div class="placeholder-content">
+                    <span class="icon">📊</span>
+                    <p>Здесь можно разместить схему сравнения <br> UWB vs Wi-Fi vs GPS</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-extra">
+            <h2 class="section-subtitle">Принцип измерения расстояния</h2>
+            <p>
+                Система ПИРС использует методы <strong>Two-Way Ranging (TWR)</strong> или <strong>Time Difference of Arrival (TDoA)</strong>. 
+                Вычисляя точное время прохождения сигнала от метки до базовой станции с точностью до триллионных долей секунды, 
+                система определяет координаты объекта с погрешностью менее 10-30 см.
+            </p>
+        </section>
+    </main>
+
+    <!-- Место для динамического подвала -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function loadBlock(id, path) {
+            fetch(path)
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    if(id === 'header-placeholder') initMobileMenu();
+                });
+        }
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu');
+            const nav = document.querySelector('.nav-list-simple');
+            if(btn && nav) {
+                btn.onclick = () => {
+                    nav.classList.toggle('active');
+                    btn.classList.toggle('is-active');
+                };
+            }
+        }
+
+        loadBlock('header-placeholder', '../../common/_head.html');
+        loadBlock('footer-placeholder', '../../common/_footer.html');
+    </script>
+</body>
+</html>

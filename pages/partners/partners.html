@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Партнеры — ПИРС</title>
+    
+    <!-- Общие стили проекта -->
+    <link rel="stylesheet" href="../../common/head_style.css">
+    <link rel="stylesheet" href="../../common/footer_style.css">
+    
+    <!-- Специфические стили этой страницы -->
+    <link rel="stylesheet" href="partners.css">
+</head>
+<body>
+
+    <!-- Место для динамической шапки -->
+    <div id="header-placeholder"></div>
+
+    <main class="container page-content">
+        <!-- Главный заголовок страницы в едином стиле -->
+        <section class="page-intro">
+            <h1 class="page-main-title">Наши партнеры</h1>
+            <p class="lead-text">
+                Мы гордимся сотрудничеством с ведущими компаниями отрасли, которые доверяют точности и надежности системы ПИРС.
+            </p>
+        </section>
+
+        <!-- Блок с изображением партнеров -->
+        <section class="partners-showcase">
+            <div class="image-wrapper">
+                <!-- Путь обновлен согласно новой структуре media/images -->
+                <img src="../../media/images/partners.png" alt="Логотипы партнеров ПИРС">
+            </div>
+            <p class="partners-caption">
+                * Список партнеров и технологических союзов, использующих решения ПИРС в своих проектах.
+            </p>
+        </section>
+    </main>
+
+    <!-- Место для динамического подвала -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function loadBlock(id, path) {
+            fetch(path)
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    if(id === 'header-placeholder') initMobileMenu();
+                });
+        }
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu');
+            const nav = document.querySelector('.nav-list-simple');
+            if(btn && nav) {
+                btn.onclick = () => {
+                    nav.classList.toggle('active');
+                    btn.classList.toggle('is-active');
+                };
+            }
+        }
+
+        loadBlock('header-placeholder', '../../common/_head.html');
+        loadBlock('footer-placeholder', '../../common/_footer.html');
+    </script>
+</body>
+</html>

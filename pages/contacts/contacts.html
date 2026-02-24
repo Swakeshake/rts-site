@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — ПИРС</title>
+    
+    <!-- Общие стили проекта -->
+    <link rel="stylesheet" href="../../common/head_style.css">
+    <link rel="stylesheet" href="../../common/footer_style.css">
+    
+    <!-- Специфические стили этой страницы -->
+    <link rel="stylesheet" href="contacts.css">
+</head>
+<body>
+
+    <!-- Место для динамической шапки -->
+    <div id="header-placeholder"></div>
+
+    <main class="container page-content">
+        <!-- Главный заголовок с фирменной полоской -->
+        <h1 class="page-main-title">Контакты</h1>
+
+        <div class="contacts-grid">
+            <div class="contacts-info">
+                <div class="contact-block">
+                    <h2 class="contact-subtitle">Свяжитесь с нами</h2>
+                    
+                    <div class="contact-item">
+                        <span class="item-label">Телефон</span>
+                        <a href="tel:+70000000000" class="item-link big">+7 (777) 777-77-77</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="item-label">Telegram</span>
+                        <a href="https://t.me/yourlink" target="_blank" class="item-link accent">@peers_contact</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="item-label">Электронная почта</span>
+                        <a href="mailto:info@peers.ru" class="item-link">info@peers.ru</a>
+                    </div>
+                </div>
+
+                <div class="work-hours">
+                    <p>
+                        Мы работаем с понедельника по пятницу с 9:00 до 18:00. <br>
+                        <strong>Техническая поддержка клиентов осуществляется круглосуточно.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="contacts-person">
+                <div class="person-card">
+                    <div class="person-image">
+                        <!-- Путь обновлен согласно новой структуре media/images -->
+                        <img src="../../media/images/Batya.png" alt="Генеральный директор ПИРС">
+                    </div>
+                    <div class="person-info">
+                        <h3>Генерал Генералыч Генералович</h3>
+                        <p class="position">Генеральный директор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Место для динамического подвала -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function loadBlock(id, path) {
+            fetch(path)
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    if(id === 'header-placeholder') initMobileMenu();
+                });
+        }
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu');
+            const nav = document.querySelector('.nav-list-simple');
+            if(btn && nav) {
+                btn.onclick = () => {
+                    nav.classList.toggle('active');
+                    btn.classList.toggle('is-active');
+                };
+            }
+        }
+
+        loadBlock('header-placeholder', '../../common/_head.html');
+        loadBlock('footer-placeholder', '../../common/_footer.html');
+    </script>
+</body>
+</html>

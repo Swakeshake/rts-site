@@ -1,0 +1,137 @@
+/* Специфические стили для страницы Контакты */
+
+.page-content {
+    padding: 80px 20px;
+    min-height: 60vh;
+}
+
+/* Главный заголовок в едином стиле проекта */
+.page-main-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-dark);
+    margin-bottom: 60px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 20px;
+}
+
+.contacts-grid {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.contacts-info {
+    flex: 1.2;
+    min-width: 320px;
+}
+
+.contact-subtitle {
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.contact-item {
+    margin-bottom: 35px;
+}
+
+.item-label {
+    display: block;
+    color: var(--text-gray);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+.item-link {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.item-link.big {
+    font-size: 28px;
+}
+
+.item-link.accent {
+    color: var(--primary-color);
+}
+
+.item-link:hover {
+    color: var(--primary-hover);
+}
+
+.work-hours {
+    padding: 30px;
+    background: var(--bg-light);
+    border-left: 4px solid var(--primary-color);
+    margin-top: 50px;
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.8;
+}
+
+/* Карточка директора */
+.contacts-person {
+    flex: 0.8;
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+}
+
+.person-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    max-width: 380px;
+    border-radius: 4px;
+}
+
+.person-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+}
+
+.person-info {
+    padding: 25px 10px 10px;
+    text-align: center;
+}
+
+.person-info h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.person-info .position {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .contacts-grid { gap: 40px; }
+}
+
+@media (max-width: 768px) {
+    .contacts-grid { flex-direction: column; }
+    .contacts-person { order: -1; width: 100%; } 
+    .page-main-title { font-size: 26px; }
+    .item-link.big { font-size: 22px; }
+}

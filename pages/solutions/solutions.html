@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решения — ПИРС</title>
+    
+    <!-- Общие стили проекта -->
+    <link rel="stylesheet" href="../../common/head_style.css">
+    <link rel="stylesheet" href="../../common/footer_style.css">
+    
+    <!-- Специфические стили этой страницы -->
+    <link rel="stylesheet" href="solution.css">
+</head>
+<body>
+
+    <!-- Место для динамической шапки -->
+    <div id="header-placeholder"></div>
+
+    <main class="container page-content">
+        <!-- Главный заголовок страницы с синей полоской -->
+        <section class="page-intro">
+            <h1 class="page-main-title">Наши решения</h1>
+            <p class="lead-text">
+                Система ПИРС адаптируется под специфические задачи различных отраслей, обеспечивая высокую точность там, где другие технологии бессильны.
+            </p>
+        </section>
+
+        <div class="solutions-grid">
+            <article class="solution-card">
+                <div class="solution-icon">📦</div>
+                <h3>Складская логистика</h3>
+                <p>Автоматизация поиска грузов, контроль передвижения погрузчиков и оптимизация маршрутов персонала на больших складах.</p>
+            </article>
+
+            <article class="solution-card">
+                <div class="solution-icon">👷</div>
+                <h3>Безопасность персонала</h3>
+                <p>Мониторинг нахождения сотрудников в опасных зонах и мгновенное оповещение при возникновении внештатных ситуаций.</p>
+            </article>
+
+            <article class="solution-card">
+                <div class="solution-icon">🤖</div>
+                <h3>БПЛА и Робототехника</h3>
+                <p>Высокоточное позиционирование дронов и автономных роботов внутри помещений без использования GPS-сигнала.</p>
+            </article>
+
+            <article class="solution-card">
+                <div class="solution-icon">🏥</div>
+                <h3>Здравоохранение</h3>
+                <p>Отслеживание дорогостоящего медицинского оборудования и быстрый поиск персонала в критических ситуациях.</p>
+            </article>
+        </div>
+    </main>
+
+    <!-- Место для динамического подвала -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function loadBlock(id, path) {
+            fetch(path)
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    if(id === 'header-placeholder') initMobileMenu();
+                });
+        }
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu');
+            const nav = document.querySelector('.nav-list-simple');
+            if(btn && nav) {
+                btn.onclick = () => {
+                    nav.classList.toggle('active');
+                    btn.classList.toggle('is-active');
+                };
+            }
+        }
+
+        loadBlock('header-placeholder', '../../common/_head.html');
+        loadBlock('footer-placeholder', '../../common/_footer.html');
+    </script>
+</body>
+</html>

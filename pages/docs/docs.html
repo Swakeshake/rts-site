@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документация — ПИРС</title>
+    
+    <!-- Общие стили проекта -->
+    <link rel="stylesheet" href="../../common/head_style.css">
+    <link rel="stylesheet" href="../../common/footer_style.css">
+    
+    <!-- Специфические стили доков -->
+    <link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+    <!-- Место для динамической шапки -->
+    <div id="header-placeholder"></div>
+
+    <!-- МАКЕТ ДОКУМЕНТАЦИИ -->
+    <div class="docs-layout">
+        
+        <!-- Боковое меню (уникальное для этой страницы) -->
+        <aside class="docs-sidebar">
+            <nav class="docs-nav">
+                <div class="nav-group">
+                    <p class="nav-group-title">Введение</p>
+                    <ul class="docs-subnav">
+                        <li><a href="docs.html" class="active">Назначение руководства пользователя</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <p class="nav-group-title">Описание составных частей</p>
+                    <ul class="docs-subnav">
+                        <li><a href="docs1.html">Навигационный модуль</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <p class="nav-group-title">Развертывание ЛНС</p>
+                    <ul class="docs-subnav">
+                        <li><a href="docs-parts.html">Развертывание ЛНС с помощью терминала ПК</a></li>
+                        <li><a href="docs-parts.html">Развертывание ЛНС с помощью ПИРС утилиты</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <p class="nav-group-title">Вкладки</p>
+                    <ul class="docs-subnav">
+                        <li>
+                            <ul class="docs-nested-nav">
+                                <li><a href="docs-utility-port.html">ПОРТ</a></li>
+                                <li><a href="#">ТЕЛЕМЕТРИЯ</a></li>
+                                <li><a href="#">МОНИТОРИНГ</a></li>
+                                <li><a href="#">ОБРАБОТКА ЛОГОВ</a></li>
+                                <li><a href="#">ПРОШИВКА</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Основной текст -->
+        <main class="docs-content">
+            <article class="docs-article">
+                <h1 class="page-main-title">Введение</h1>
+                
+                <h2>Назначение руководства пользователя</h2>
+                <p>
+                    Данное руководство предназначено для установления порядка и правил<br>
+                    использования комплекта программно-аппаратных средств локальной <br>
+                    навигационной системы (ЛНС) ПИРС.
+                </p>
+            </article>
+        </main>
+    </div>
+
+    <!-- Место для динамического подвала -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function loadBlock(id, path) {
+            fetch(path)
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    if(id === 'header-placeholder') initMobileMenu();
+                });
+        }
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu');
+            const nav = document.querySelector('.nav-list-simple');
+            if(btn && nav) {
+                btn.onclick = () => {
+                    nav.classList.toggle('active');
+                    btn.classList.toggle('is-active');
+                };
+            }
+        }
+
+        loadBlock('header-placeholder', '../../common/_head.html');
+        loadBlock('footer-placeholder', '../../common/_footer.html');
+    </script>
+</body>
+</html>

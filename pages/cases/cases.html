@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кейсы — ПИРС</title>
+    
+    <!-- Общие стили проекта -->
+    <link rel="stylesheet" href="../../common/head_style.css">
+    <link rel="stylesheet" href="../../common/footer_style.css">
+    
+    <!-- Специфические стили этой страницы -->
+    <link rel="stylesheet" href="cases.css">
+</head>
+<body>
+
+    <!-- Место для динамической шапки -->
+    <div id="header-placeholder"></div>
+
+    <main class="container page-content">
+        <!-- Главный заголовок в едином стиле с полоской -->
+        <section class="page-intro">
+            <h1 class="page-main-title">Кейсы и демонстрации</h1>
+            <p class="lead-text">
+                Видеоматериалы с испытаний и реальных внедрений системы ПИРС на различных объектах.
+            </p>
+        </section>
+
+        <div class="video-grid">
+            <article class="video-card">
+                <div class="video-container">
+                    <iframe src="https://vk.com/video_ext.php?oid=-110135406&id=456244004&hd=2" allowfullscreen></iframe>
+                </div>
+                <h3>Демонстрация работы (VK)</h3>
+            </article>
+
+            <article class="video-card">
+                <div class="video-container">
+                    <iframe src="https://rutube.ru/play/embed/77f21bfbc406c1f77e294070b06e7e33/" allowfullscreen></iframe>
+                </div>
+                <h3>Промышленные испытания (Rutube)</h3>
+            </article>
+
+            <article class="video-card">
+                <div class="video-container">
+                    <!-- Пути обновлены до папки media -->
+                    <video controls poster="../../media/images/ivan.png">
+                        <source src="../../media/videos/videoplayback.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает встроенные видео.
+                    </video>
+                </div>
+                <h3>Внутренний тест системы</h3>
+            </article>
+
+            <article class="video-card">
+                <div class="video-container">
+                    <div class="video-placeholder">Ожидается видео</div>
+                </div>
+                <h3>Кейс на этапе подготовки</h3>
+            </article>
+
+            <article class="video-card">
+                <div class="video-container">
+                    <div class="video-placeholder">Ожидается видео</div>
+                </div>
+                <h3>Кейс на этапе подготовки</h3>
+            </article>
+
+            <article class="video-card">
+                <div class="video-container">
+                    <div class="video-placeholder">Ожидается видео</div>
+                </div>
+                <h3>Кейс на этапе подготовки</h3>
+            </article>
+        </div>
+    </main>
+
+    <!-- Место для динамического подвала -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function loadBlock(id, path) {
+            fetch(path)
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    if(id === 'header-placeholder') initMobileMenu();
+                });
+        }
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu');
+            const nav = document.querySelector('.nav-list-simple');
+            if(btn && nav) {
+                btn.onclick = () => {
+                    nav.classList.toggle('active');
+                    btn.classList.toggle('is-active');
+                };
+            }
+        }
+
+        loadBlock('header-placeholder', '../../common/_head.html');
+        loadBlock('footer-placeholder', '../../common/_footer.html');
+    </script>
+</body>
+</html>

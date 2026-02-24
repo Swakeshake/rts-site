@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пользовательское соглашение — ПИРС</title>
+    
+    <!-- Подключаем общие стили проекта -->
+    <link rel="stylesheet" href="../../common/head_style.css">
+    <link rel="stylesheet" href="../../common/footer_style.css">
+    
+    <!-- Специфические стили этой страницы -->
+    <link rel="stylesheet" href="agreement.css">
+</head>
+<body>
+
+    <!-- Место для динамической шапки -->
+    <div id="header-placeholder"></div>
+
+    <main class="container page-content legal-container">
+        <article class="legal-article">
+            <!-- Главный заголовок в едином стиле проекта -->
+            <h1 class="page-main-title">Пользовательское соглашение</h1>
+            <p class="last-updated">Последнее обновление: 19 января 2024 г.</p>
+
+            <section class="legal-section">
+                <h2>1. Общие положения</h2>
+                <p>Настоящее Пользовательское соглашение регулирует использование сайта и программного обеспечения ПИРС. Используя наш сайт или оборудование, вы автоматически соглашаетесь с данными условиями.</p>
+            </section>
+
+            <section class="legal-section">
+                <h2>2. Интеллектуальная собственность</h2>
+                <p>Все права на технологию ПИРС, включая товарные знаки, логотипы, архитектуру аппаратных средств и программный код, защищены законодательством об интеллектуальной собственности.</p>
+            </section>
+
+            <section class="legal-section">
+                <h2>3. Ограничение ответственности</h2>
+                <p>Компания ПИРС не несет ответственности за любые косвенные убытки, возникшие в результате неправильной эксплуатации оборудования или использования ПО в условиях, не предусмотренных технической документацией.</p>
+            </section>
+
+            <section class="legal-section">
+                <h2>4. Конфиденциальность данных</h2>
+                <p>Мы собираем только те технические данные, которые необходимы для функционирования системы навигации. Подробности можно найти в нашей <a href="#" class="text-link">Политике конфиденциальности</a>.</p>
+            </section>
+
+            <div class="legal-notice">
+                <p>Если у вас возникли вопросы по данному соглашению, пожалуйста, свяжитесь с нами через раздел <a href="../contacts/contacts.html" class="text-link"><strong>Контакты</strong></a>.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Место для динамического подвала -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function loadBlock(id, path) {
+            fetch(path)
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    if(id === 'header-placeholder') initMobileMenu();
+                });
+        }
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu');
+            const nav = document.querySelector('.nav-list-simple');
+            if(btn && nav) {
+                btn.onclick = () => {
+                    nav.classList.toggle('active');
+                    btn.classList.toggle('is-active');
+                };
+            }
+        }
+
+        loadBlock('header-placeholder', '../../common/_head.html');
+        loadBlock('footer-placeholder', '../../common/_footer.html');
+    </script>
+</body>
+</html>

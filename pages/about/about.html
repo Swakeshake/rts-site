@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас — ПИРС</title>
+    <link rel="stylesheet" href="../../common/head_style.css">
+    <link rel="stylesheet" href="../../common/footer_style.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main class="container page-content">
+        <h1 class="page-main-title">О компании ПИРС</h1>
+        <p class="lead-text">
+            Мы — команда инженеров и разработчиков, объединенных целью создания самой точной 
+            и надежной системы локальной навигации.
+        </p>
+
+        <section class="info-blocks">
+            <div class="info-card primary">
+                <h2>Наша миссия</h2>
+                <p>Предоставлять бизнесу высокоточные данные о местоположении объектов в реальном времени, повышая эффективность и безопасность рабочих процессов.</p>
+            </div>
+            <div class="info-card light">
+                <h2>Наш подход</h2>
+                <p>Мы верим в силу UWB-технологий и разрабатываем устройства и ПО полного цикла — от архитектуры чипа до пользовательских интерфейсов.</p>
+            </div>
+        </section>
+
+        <section class="advantages">
+            <h2 class="section-subtitle">Почему выбирают ПИРС?</h2>
+            <div class="advantages-grid">
+                <div class="adv-item">
+                    <strong>Собственная разработка</strong>
+                    Полный контроль над аппаратной и программной частью.
+                </div>
+                <div class="adv-item">
+                    <strong>Глубокая экспертиза</strong>
+                    Многолетний опыт работы с радиочастотными системами.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu');
+            const nav = document.querySelector('.nav-list-simple');
+            const header = document.querySelector('header'); // Находим шапку (landing или internal)
+            const body = document.body;
+
+            if (btn && nav) {
+                // Очищаем старые события, если они были (важно для fetch)
+                btn.onclick = null; 
+
+                btn.onclick = () => {
+                    const isActive = nav.classList.toggle('active');
+                    btn.classList.toggle('is-active');
+                    
+                    // Добавляем класс шапке, чтобы менять цвет лого и фона
+                    if(header) header.classList.toggle('is-open');
+
+                    body.style.overflow = isActive ? 'hidden' : '';
+                };
+
+                // Закрытие при клике на ссылки
+                nav.querySelectorAll('a').forEach(link => {
+                    link.onclick = () => {
+                        nav.classList.remove('active');
+                        btn.classList.remove('is-active');
+                        if(header) header.classList.remove('is-open');
+                        body.style.overflow = '';
+                    };
+                });
+            }
+        }
+
+        // Если это внутренняя страница с загрузкой через fetch:
+        if (document.getElementById('header-placeholder')) {
+            loadBlock('header-placeholder', '../../common/_head.html');
+        } else {
+            // Если это лендинг (шапка уже в HTML)
+            document.addEventListener('DOMContentLoaded', initMobileMenu);
+        }
+
+        function loadBlock(id, path) {
+            fetch(path)
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    initMobileMenu(); // Запуск СРАЗУ после появления HTML в DOM
+                });
+        }
+    </script>
+</body>
+</html>
