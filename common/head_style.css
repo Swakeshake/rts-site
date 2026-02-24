@@ -1,0 +1,165 @@
+/* --- 1. ПЕРЕМЕННЫЕ И БАЗА (из вашего style.css) --- */
+:root {
+    --primary-color: #3a7a8a;
+    --text-dark: #333333;
+    --text-gray: #666666;
+    --white: #ffffff;
+    --bg-light: #fcfcfc;
+    --border-color: #eeeeee;
+    --transition: 0.3s ease-in-out;
+    --container-width: 1200px;
+    --header-height: 90px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--white); color: var(--text-dark); line-height: 1.6; }
+.container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
+ul { list-style: none; }
+a { text-decoration: none; transition: var(--transition); color: inherit; }
+
+/* --- 2. ШАПКА И НАВИГАЦИЯ (из вашего style.css) --- */
+.header-internal {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky; top: 0; width: 100%; z-index: 1000;
+    height: var(--header-height);
+    display: flex; align-items: center;
+}
+.header-wrap-custom { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.logo-internal img { height: 30px; width: auto; filter: none; }
+
+.nav-list-simple { display: flex; gap: 40px; }
+.nav-list-simple > li { position: relative; }
+.nav-list-simple > li > a { font-weight: 600; font-size: 15px; padding: 10px 0; display: block; position: relative; }
+.nav-list-simple > li > a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: -2px; left: 50%; background-color: var(--primary-color);
+    transition: all 0.3s ease-in-out; transform: translateX(-50%);
+}
+.nav-list-simple > li > a:hover { color: var(--primary-color) !important; }
+.nav-list-simple > li > a:hover::after { width: 100%; }
+
+.submenu {
+    display: none; position: absolute; top: 100%; left: 0;
+    background-color: var(--white) !important; min-width: 220px;
+    padding: 10px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-top: 3px solid var(--primary-color); z-index: 2000;
+}
+.has-dropdown:hover .submenu { display: block; }
+.submenu li a { display: block; padding: 12px 20px; color: var(--text-dark) !important; font-size: 14px; font-weight: 500; }
+.submenu li a:hover { background: #f8f8f8; color: var(--primary-color) !important; }
+
+/* --- 3. АДАПТИВНОСТЬ ШАПКИ (из вашего style.css) --- */
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 6px; z-index: 2001; }
+.menu-toggle .bar { width: 30px; height: 3px; background-color: var(--primary-color); border-radius: 2px; transition: 0.3s; }
+
+/* --- АДАПТИВНОСТЬ ШАПКИ (Внутренние страницы) --- */
+
+@media (max-width: 992px) {
+    /* 1. Сама шапка */
+    .header-internal {
+        height: auto !important;
+        padding: 15px 0 !important;
+        background-color: #ffffff;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .header-wrap-custom {
+        padding: 0 25px !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    /* 2. БУРГЕР (КНОПКА) — Геометрия 1-в-1 */
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 6px;
+        z-index: 3001; 
+        margin-top: 10px;
+    }
+
+    .menu-toggle .bar {
+        width: 30px;
+        height: 3px;
+        background-color: #000000 !important; /* Черные полоски на белом фоне */
+        border-radius: 2px;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Анимация Крестика */
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; transform: translateX(10px); }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* 3. МОБИЛЬНОЕ МЕНЮ (Полноэкранное) */
+    .nav-list-simple {
+        display: none; 
+        flex-direction: column;
+        position: fixed;
+        top: 0; 
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: #ffffff !important; 
+        padding: 60px 0 40px 0 !important; 
+        justify-content: flex-start; 
+        gap: 10px;
+        text-align: center;
+        z-index: 3000;
+        overflow-y: auto;
+    }
+
+    .nav-list-simple.active {
+        display: flex;
+    }
+
+    /* 4. ШРИФТЫ И ССЫЛКИ */
+    .nav-list-simple > li > a {
+        color: #000000 !important;
+        font-size: 20px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.5px !important;
+        padding: 15px 0 !important; 
+        display: block;
+        width: 100%;
+    }
+
+    /* УДАЛЯЕМ БИРЮЗОВЫЕ ПОЛОСКИ (::after) */
+    .nav-list-simple > li > a::after {
+        display: none !important;
+        content: none !important;
+        width: 0 !important;
+    }
+    
+    .nav-list-simple > li > a:hover::after {
+        width: 0 !important;
+    }
+
+    /* Подпункты */
+    .submenu {
+        position: static !important;
+        display: block !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 5px 0 15px 0 !important;
+    }
+
+    .submenu li a {
+        color: #666666 !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        padding: 10px 0 !important;
+        text-transform: none !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    .nav-list-simple > li:first-child {
+        margin-top: 20px;
+    }
+}
