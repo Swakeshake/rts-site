@@ -245,7 +245,7 @@
         });
 
         // Загрузка подвала
-        fetch('common/_footer.html')
+        fetch('./common/_footer.html')
             .then(res => res.text())
             .then(data => {
                 let correctedData = data.replace(/\.\.\/\.\.\/media\//g, 'media/').replace(/\.\.\//g, 'pages/');             
@@ -280,4 +280,5 @@
     </script>
     
 </body>
+
 </html>
